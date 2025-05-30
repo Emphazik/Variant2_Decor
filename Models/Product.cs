@@ -41,6 +41,7 @@ namespace Variant2_Decor.Models
                 price = value;
             }
         }
+
         public virtual ProductType ProductType { get; set; }
         public virtual ICollection<ProductMaterials> ProductMaterials { get; set; }
     }

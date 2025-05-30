@@ -27,7 +27,8 @@ namespace Variant2_Decor.Models
         public decimal MinQuantity { get; set; }
         public decimal PackageQuantity { get; set; }
         public int UnitID { get; set; }
-    
+        
+
         public virtual MaterialType MaterialType { get; set; }
         public virtual Units Units { get; set; }
         public virtual ICollection<ProductMaterials> ProductMaterials { get; set; }

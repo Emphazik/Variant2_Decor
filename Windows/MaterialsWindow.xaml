@@ -25,27 +25,44 @@
                        HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#2D6033"/>
         </Grid>
 
-        <ListView Grid.Row="1" x:Name="MaterialsListView" Background="#BBD9B2" HorizontalContentAlignment="Stretch" d:ItemsSource="{d:SampleData}">
+        <ListView Grid.Row="1" Margin="10 0 10 10" x:Name="ListView" HorizontalContentAlignment="Stretch" d:ItemsSource="{d:SampleData}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="#2D6033" BorderThickness="1" Padding="5" Margin="5" Background="#FFFFFF">
-                        <Grid Margin="5">
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        <Grid Margin="10">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" FontSize="18" Margin="0,0,5,0" Foreground="#2D6033">
-                                <Run Text="Материал: "/>
-                            </TextBlock>
-                            <TextBlock Grid.Column="1" FontSize="18" Margin="0,0,5,0">
-                                <Run Text="{Binding Materials.MaterialName}"/>
-                            </TextBlock>
-                            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" Margin="0,30,0,0">
-                                <Run Text="Количество: "/>
-                                <Run Text="{Binding NeedQuantity, StringFormat={}{0:F2}}"/>
-                                <Run Text=" "/>
-                                <Run Text="{Binding Materials.Units.UnitName}"/>
-                            </TextBlock>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Column="0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding MaterialType.MaterialName}" />
+                                    <TextBlock Text=" | " />
+                                    <TextBlock Text="{Binding MaterialName}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Кол-во в упаковке " />
+                                    <TextBlock Text="{Binding PackageQuantity}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Минимальное количество " />
+                                    <TextBlock Text="{Binding MinQuantity}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Кол-во на складе " />
+                                    <TextBlock Text="{Binding StockQuanity}" />
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Units.UnitName}" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" />
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Grid.Column="2">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Cтоимость (р) " />
+                                    <TextBlock Text="{Binding UnitPrice}" />
+                                </StackPanel>
+                            </StackPanel>
                         </Grid>
                     </Border>
                 </DataTemplate>

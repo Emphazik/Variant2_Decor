@@ -48,7 +48,7 @@ namespace Variant2_Decor.Windows
 
         private bool ValidateInput()
         {
-            if (string.IsNullOrWhiteSpace(_product.ProductName))
+            if (string.IsNullOrWhiteSpace((DataContext as Product).ProductName))
             {
                 ShowError("Наименование не может быть пустым.");
                 return false;
@@ -60,19 +60,19 @@ namespace Variant2_Decor.Windows
                 return false;
             }
 
-            if (_product.Article < 0)
+            if ((DataContext as Product).Article < 0)
             {
                 ShowError("Артикул должен быть неотрицательным целым числом.");
                 return false;
             }
 
-            if (_product.MinPrice < 0)
+            if ((DataContext as Product).MinPrice < 0)
             {
                 ShowError("Минимальная стоимость должна быть неотрицательным числом.");
                 return false;
             }
 
-            if (_product.Width <= 0)
+            if ((DataContext as Product).Width <= 0)
             {
                 ShowError("Ширина рулона должна быть положительным числом.");
                 return false;
@@ -89,7 +89,7 @@ namespace Variant2_Decor.Windows
             {
                 if (!_isEditing)
                 {
-                    AppConnect.BDdecor.Product.Add(_product);
+                    AppConnect.BDdecor.Product.Add((DataContext as Product));
                 }
                 AppConnect.BDdecor.SaveChanges();
                 DialogResult = true;

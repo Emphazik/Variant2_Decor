@@ -22,11 +22,7 @@ namespace Variant2_Decor.Windows
         {
             try
             {
-                var materials = AppConnect.BDdecor.ProductMaterials
-                    .Include(pm => pm.Materials.Units) // Подгружаем связанные сущности
-                    .Where(pm => pm.ProductID == _product.ProductID)
-                    .ToList();
-                MaterialsListView.ItemsSource = materials;
+                ListView.ItemsSource = _product.ProductMaterials.ToList().ConvertAll(mp => mp.Materials);
             }
             catch (Exception ex)
             {
