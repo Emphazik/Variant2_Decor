@@ -163,6 +163,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="DatabaseConnect\ERR_Diagramma.pdf" />
     <None Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
@@ -181,6 +182,7 @@
     <Resource Include="Images\Наш декор.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseConnect\03_bdshka.sql" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
